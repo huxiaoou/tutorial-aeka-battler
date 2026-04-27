@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bv5fc6y8c4ir1"]
 
-[ext_resource type="Texture2D" uid="uid://0bbb0xk2iajj" path="res://assets/Demios.png" id="1_btf8p"]
+[ext_resource type="Texture2D" uid="uid://c03rb2krflekk" path="res://assets/Anubis.png" id="1_btf8p"]
+[ext_resource type="Script" uid="uid://feu0oig3hs4r" path="res://unit.gd" id="1_ctwoc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k4y1u"]
 radius = 155.56349
@@ -21,10 +22,10 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_btf8p"]
-resource_name = "idle"
-length = 1.35
+resource_name = "idle0"
+length = 0.6
 loop_mode = 1
-step = 0.15
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -32,22 +33,61 @@ tracks/0/path = NodePath("Sprite2D:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.14285715, 0.2857143, 0.42857143, 0.5714286, 0.71428573, 0.85714287, 1, 1.1428572),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0)]
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_davkp"]
+resource_name = "idle1"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5wnup"]
+resource_name = "idle2"
+length = 0.6
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ctwoc"]
 _data = {
 &"RESET": SubResource("Animation_ctwoc"),
-&"idle": SubResource("Animation_btf8p")
+&"idle0": SubResource("Animation_btf8p"),
+&"idle1": SubResource("Animation_davkp"),
+&"idle2": SubResource("Animation_5wnup")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1804197766]
+[node name="Unit" type="CharacterBody2D" unique_id=1804197766]
+script = ExtResource("1_ctwoc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1478363355]
-position = Vector2(70, -256)
+position = Vector2(2, -260)
 texture = ExtResource("1_btf8p")
 hframes = 9
 vframes = 6
