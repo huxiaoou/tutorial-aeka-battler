@@ -1,8 +1,72 @@
 [gd_scene format=3 uid="uid://qch08eaw8qhf"]
 
-[ext_resource type="PackedScene" uid="uid://bv5fc6y8c4ir1" path="res://unit.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://c03rb2krflekk" path="res://assets/Anubis.png" id="2_0xm2m"]
+[ext_resource type="AnimationLibrary" uid="uid://ddsjf5gpdwtgg" path="res://resources/animation_unit.res" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://t8s6krl80ok4" path="res://assets/Tile_16-512x512.png" id="3_h2yge"]
 
-[node name="Main" type="Node2D" unique_id=1348526689]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
+height = 4.0961914
 
-[node name="Unit" parent="." unique_id=1804197766 instance=ExtResource("1_ig7tw")]
-position = Vector2(556, 495)
+[sub_resource type="Animation" id="Animation_1bvp3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lquwl"]
+_data = {
+&"RESET": SubResource("Animation_1bvp3")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
+albedo_texture = ExtResource("3_h2yge")
+metallic = 0.35
+uv1_scale = Vector3(8, 8, 8)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
+material = SubResource("StandardMaterial3D_ig7tw")
+size = Vector2(20, 20)
+
+[node name="Main" type="Node3D" unique_id=1167153283]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=58334373]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 3.223, 1.9583318)
+fov = 60.0
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2120499992]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D" unique_id=1179685606]
+transform = Transform3D(0.9999999, 0, 0, 0, 1, 0, 0, 0, 0.9999999, 0, 1.350116, 0)
+pixel_size = 0.005
+alpha_cut = 2
+texture = ExtResource("2_0xm2m")
+hframes = 9
+vframes = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=745384698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0480957, 0)
+shape = SubResource("CapsuleShape3D_ig7tw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D" unique_id=2116329260]
+libraries/ = SubResource("AnimationLibrary_lquwl")
+libraries/animation_unit = ExtResource("2_h2yge")
+autoplay = &"animation_unit/idle_0"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=150786947]
+mesh = SubResource("PlaneMesh_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2038937702]
+transform = Transform3D(1, 0, 0, 0, 0.95572627, 0.29425716, 0, -0.29425716, 0.95572627, 0, 3.3688903, 5.0718846)
+light_color = Color(0.5120705, 0.3239422, 0.18309698, 1)
+light_energy = 3.138
+shadow_enabled = true
