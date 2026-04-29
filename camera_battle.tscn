@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://de773fxalv44y"]
+
+[ext_resource type="Script" uid="uid://bda6mfx578l4f" path="res://camera_battle.gd" id="1_yxewj"]
+
+[node name="Camera3D" type="Camera3D" unique_id=1955019178]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, 0.25881904, 0, -0.25881904, 0.9659258, 0, 0, 0)
+keep_aspect = 0
+fov = 90.0
+script = ExtResource("1_yxewj")
