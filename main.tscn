@@ -2,15 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://bv5fc6y8c4ir1" path="res://unit.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://de773fxalv44y" path="res://camera_battle.tscn" id="1_h2yge"]
-[ext_resource type="Texture2D" uid="uid://t8s6krl80ok4" path="res://assets/Tile_16-512x512.png" id="3_h2yge"]
+[ext_resource type="Shader" uid="uid://e2c6c7s31cqn" path="res://main.gdshader" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://d1li5xlut1ws1" path="res://assets/Tile_07-512x512.png" id="3_1bvp3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ig7tw"]
-albedo_texture = ExtResource("3_h2yge")
-metallic = 0.35
-uv1_scale = Vector3(8, 8, 8)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+render_priority = 0
+shader = ExtResource("2_h2yge")
+shader_parameter/tex_ground = ExtResource("3_1bvp3")
+shader_parameter/tile_multiplier = 16.0
+shader_parameter/border_width = 0.005
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ig7tw"]
-material = SubResource("StandardMaterial3D_ig7tw")
+material = SubResource("ShaderMaterial_1bvp3")
 size = Vector2(40, 40)
 
 [node name="Main" type="Node3D" unique_id=1167153283]
