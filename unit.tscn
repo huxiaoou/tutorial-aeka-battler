@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://feu0oig3hs4r" path="res://unit.gd" id="1_ctwoc"]
 [ext_resource type="Texture2D" uid="uid://b5c8rn00mqb1q" path="res://assets/FlyingHareSV.png" id="2_davkp"]
-[ext_resource type="AnimationLibrary" uid="uid://ddsjf5gpdwtgg" path="res://resources/animation_unit.res" id="3_davkp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
 radius = 0.40677643
@@ -45,5 +44,4 @@ shape = SubResource("CapsuleShape3D_ig7tw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1488023613]
 libraries/ = SubResource("AnimationLibrary_lquwl")
-libraries/animation_unit = ExtResource("3_davkp")
 autoplay = &"animation_unit/idle_0"
