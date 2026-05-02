@@ -13,13 +13,12 @@ func _ready() -> void:
         anim_player.add_animation_library("animation_unit", anim_lib)
 
 
-
 func _unhandled_input(event: InputEvent) -> void:
     if DebugTools.test_mode_enabled:
         if event.is_action_pressed("debug_increase"):
-            anim_player.play("animation_unit/idle_0")
-        elif event.is_action_pressed("debug_decrease"):
-            anim_player.play("animation_unit/attack_0")
-        elif event.is_action_pressed("debug_multi"):
-            anim_player.play("animation_unit/attack_1")
+            var anim_names: Array[StringName] = anim_player.get_animation_library("animation_unit").get_animation_list()
+            if anim_names.size() > 0:
+                var anim_name: StringName = anim_names.pick_random()
+                anim_player.play("animation_unit/" + anim_name)
+                print("Playing animation: ", anim_name)
     return
