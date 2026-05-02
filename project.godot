@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
+Config="*uid://bdnpoarv354ly"
 DebugTools="*uid://u2aekbjw2n8n"
 
 [display]

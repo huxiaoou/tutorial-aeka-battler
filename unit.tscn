@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bv5fc6y8c4ir1"]
 
 [ext_resource type="Script" uid="uid://feu0oig3hs4r" path="res://unit.gd" id="1_ctwoc"]
-[ext_resource type="Texture2D" uid="uid://b5c8rn00mqb1q" path="res://assets/FlyingHareSV.png" id="2_davkp"]
+[ext_resource type="Texture2D" uid="uid://b5c8rn00mqb1q" path="res://assets/rpg_maker_sv/FlyingHareSV.png" id="2_davkp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
 radius = 0.40677643

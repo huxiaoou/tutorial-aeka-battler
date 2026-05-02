@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c03rb2krflekk"
-path.s3tc="res://.godot/imported/Anubis.png-8c91694c8f7d332e93ccfe94bce69518.s3tc.ctex"
+path.s3tc="res://.godot/imported/Anubis.png-8ea26f085e7bd23e531484dc340e4fc1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Anubis.png"
-dest_files=["res://.godot/imported/Anubis.png-8c91694c8f7d332e93ccfe94bce69518.s3tc.ctex"]
+source_file="res://assets/rpg_maker_sv/Anubis.png"
+dest_files=["res://.godot/imported/Anubis.png-8ea26f085e7bd23e531484dc340e4fc1.s3tc.ctex"]
 
 [params]
 
