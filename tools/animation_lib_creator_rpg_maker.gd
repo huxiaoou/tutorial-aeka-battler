@@ -53,22 +53,17 @@ func main() -> void:
     var cfg_animations_lib: Dictionary = load_json_file(Config.ANIMATION_LIB)
     print(cfg_animations_lib)
 
-    var frame_duration: float = 0.2
-    var library = AnimationLibrary.new()
-
-    add_animation_to_lib("idle_0", library, frame_duration, 0, 3, Animation.LOOP_LINEAR)
-    add_animation_to_lib("idle_1", library, frame_duration, 9, 12, Animation.LOOP_LINEAR)
-    add_animation_to_lib("idle_2", library, frame_duration, 18, 21, Animation.LOOP_LINEAR)
-    add_animation_to_lib("idle_3", library, frame_duration, 27, 30, Animation.LOOP_LINEAR)
-    add_animation_to_lib("idle_4", library, frame_duration, 36, 39, Animation.LOOP_LINEAR)
-    add_animation_to_lib("idle_5", library, frame_duration, 45, 48, Animation.LOOP_LINEAR)
-
-    add_animation_to_lib("attack_0", library, frame_duration, 3, 6, Animation.LOOP_NONE)
-    add_animation_to_lib("attack_1", library, frame_duration, 12, 15, Animation.LOOP_NONE)
-    add_animation_to_lib("attack_2", library, frame_duration, 21, 24, Animation.LOOP_NONE)
-    add_animation_to_lib("attack_3", library, frame_duration, 30, 33, Animation.LOOP_NONE)
-    add_animation_to_lib("attack_4", library, frame_duration, 39, 42, Animation.LOOP_NONE)
-    add_animation_to_lib("attack_5", library, frame_duration, 48, 51, Animation.LOOP_NONE)
-
-    save_my_library(library, Config.RPG_MAKER_ANIMATION_LIB)
+    for anim_lib_id: String in cfg_animations_lib:
+        var anim_lib_data: Dictionary = cfg_animations_lib[anim_lib_id]
+        var library = AnimationLibrary.new()
+        var frame_duration: float = anim_lib_data["frame_duration"]
+        for anim_name: String in anim_lib_data["animations"]:
+            var anim_data: Dictionary = anim_lib_data["animations"][anim_name]
+            var bgn: int = anim_data["bgn"]
+            var stp: int = anim_data["stp"]
+            var loop: int = anim_data["loop"]
+            var loop_mode: Animation.LoopMode = loop as Animation.LoopMode
+            add_animation_to_lib(anim_name, library, frame_duration, bgn, stp, loop_mode)
+        print("Animation library created for: ", anim_lib_id)
+        save_my_library(library, anim_lib_data["save_path"])
     return
