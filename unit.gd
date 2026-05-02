@@ -8,7 +8,7 @@ class_name Unit
 
 func _ready() -> void:
     print("ready")
-    var anim_lib = load(Config.RPG_MAKER_ANIMATION_LIB)
+    var anim_lib: AnimationLibrary = Config.get_rpg_maker_animation_lib()
     if anim_lib is AnimationLibrary:
         anim_player.add_animation_library("animation_unit", anim_lib)
 
