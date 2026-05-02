@@ -1,6 +1,19 @@
 @tool
 extends EditorScript
 
+func load_json_file(file_path: String) -> Variant:
+    if FileAccess.file_exists(file_path):
+        var data_file = FileAccess.open(file_path, FileAccess.READ)
+        var parsed_result = JSON.parse_string(data_file.get_as_text())
+        if parsed_result is Dictionary or parsed_result is Array:
+            print("JSON content loaded successfully from: ", file_path)
+            return parsed_result
+        print("Error: Could not parse JSON content.")
+    else:
+        print("Error: File does not exist.")
+    return null
+
+
 func _run() -> void:
     main()
 
@@ -37,6 +50,9 @@ func save_my_library(library: AnimationLibrary, path: String):
 
 
 func main() -> void:
+    var cfg_animations_lib: Dictionary = load_json_file(Config.ANIMATION_LIB)
+    print(cfg_animations_lib)
+
     var frame_duration: float = 0.2
     var library = AnimationLibrary.new()
 
