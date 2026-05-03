@@ -10,3 +10,7 @@ func get_animation_lib(anim_lib_name: String) -> String:
 
 func get_rpg_maker_animation_lib() -> AnimationLibrary:
     return load(get_animation_lib("rpg_maker"))
+
+
+func get_aekalib_flyinghare() -> AnimationLibrary:
+    return load(get_animation_lib("aekalib_flyinghare"))

@@ -64,5 +64,81 @@
             }
         },
         "save_path": "res://resources/animations_rpg_maker.res"
+    },
+    "aekalib_flyinghare": {
+        "frame_duration": 0.04,
+        "animations": {
+            "attack_a": {
+                "bgn": 0,
+                "stp": 81,
+                "loop": 0
+            },
+            "attack_b": {
+                "bgn": 81,
+                "stp": 145,
+                "loop": 0
+            },
+            "attack_c": {
+                "bgn": 145,
+                "stp": 206,
+                "loop": 0
+            },
+            "damage": {
+                "bgn": 206,
+                "stp": 237,
+                "loop": 0
+            },
+            "dash": {
+                "bgn": 237,
+                "stp": 263,
+                "loop": 0
+            },
+            "defeat": {
+                "bgn": 263,
+                "stp": 265,
+                "loop": 0
+            },
+            "evade": {
+                "bgn": 265,
+                "stp": 291,
+                "loop": 0
+            },
+            "guard": {
+                "bgn": 291,
+                "stp": 357,
+                "loop": 2
+            },
+            "idle": {
+                "bgn": 357,
+                "stp": 423,
+                "loop": 2
+            },
+            "ready": {
+                "bgn": 423,
+                "stp": 489,
+                "loop": 2
+            },
+            "skill": {
+                "bgn": 489,
+                "stp": 550,
+                "loop": 2
+            },
+            "sleep": {
+                "bgn": 550,
+                "stp": 616,
+                "loop": 2
+            },
+            "victory": {
+                "bgn": 616,
+                "stp": 682,
+                "loop": 2
+            },
+            "weak_idle": {
+                "bgn": 682,
+                "stp": 748,
+                "loop": 2
+            }
+        },
+        "save_path": "res://resources/animations_aekalib_flyinghare.res"
     }
 }
