@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bv5fc6y8c4ir1"]
 
 [ext_resource type="Script" uid="uid://feu0oig3hs4r" path="res://unit.gd" id="1_ctwoc"]
-[ext_resource type="Texture2D" uid="uid://dx2iyil0wnov4" path="res://assets/aekalib/aekalib_flying_hare.png" id="2_ctwoc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig7tw"]
 radius = 0.40677643
@@ -23,10 +22,6 @@ script = ExtResource("1_ctwoc")
 transform = Transform3D(0.99999976, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0, 0.48325825, 0)
 pixel_size = 0.005
 alpha_cut = 2
-texture = ExtResource("2_ctwoc")
-hframes = 24
-vframes = 32
-frame = 357
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1481876964]
 shape = SubResource("CapsuleShape3D_ig7tw")

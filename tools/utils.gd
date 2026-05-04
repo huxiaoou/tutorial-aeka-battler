@@ -14,9 +14,25 @@ static func load_json_file(file_path: String) -> Variant:
         print("Error: File does not exist.")
     return null
 
-static func get_cfg_animations_lib(animation_lib: String) -> Dictionary:
-    var cfg_animations_lib: Dictionary = Utils.load_json_file(animation_lib)
+
+static func get_aeka_lib(anim_lib_cfg_path: String, anim_lib_name: String) -> AekaLib:
+    var cfg_animations_lib: Dictionary = Utils.load_json_file(anim_lib_cfg_path)
     if cfg_animations_lib is Dictionary:
-        return cfg_animations_lib
+        var aeka_lib: AekaLib = AekaLib.new()
+        aeka_lib.load_from_dict(cfg_animations_lib[anim_lib_name])
+        return aeka_lib
     print("Error: Failed to load animation library configuration.")
-    return { }
+    return null
+
+
+static func get_aeka_libs(anim_lib_cfg_path: String) -> Array[AekaLib]:
+    var cfg_animations_lib: Dictionary = Utils.load_json_file(anim_lib_cfg_path)
+    if cfg_animations_lib is Dictionary:
+        var aeka_libs: Array[AekaLib] = []
+        for anim_lib_name in cfg_animations_lib.keys():
+            var aeka_lib: AekaLib = AekaLib.new()
+            aeka_lib.load_from_dict(cfg_animations_lib[anim_lib_name])
+            aeka_libs.append(aeka_lib)
+        return aeka_libs
+    print("Error: Failed to load animation library configuration.")
+    return []

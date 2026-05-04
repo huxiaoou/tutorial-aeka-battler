@@ -1,16 +1,19 @@
 extends Node
 
-const ANIMATION_LIB: String = "res://config/animations_lib.json"
+const AEKA_LIB_CFG_PATH: String = "res://config/aeka_lib_cfg.json"
+
+enum AekaLibID {
+    FLYING_HARE,
+    TEST,
+}
 
 
-func get_animation_lib(anim_lib_name: String) -> String:
-    var cfg_animations_lib: Dictionary = Utils.get_cfg_animations_lib(ANIMATION_LIB)
-    return cfg_animations_lib[anim_lib_name]["save_path"]
+func aeka_id_to_lib_name(id: AekaLibID) -> String:
+    match id:
+        AekaLibID.FLYING_HARE:
+            return "flyinghare"
+    return ""
 
 
-func get_rpg_maker_animation_lib() -> AnimationLibrary:
-    return load(get_animation_lib("rpg_maker"))
-
-
-func get_aekalib_flyinghare() -> AnimationLibrary:
-    return load(get_animation_lib("aekalib_flyinghare"))
+func get_aeka_lib(anim_lib_name: String) -> AekaLib:
+    return Utils.get_aeka_lib(AEKA_LIB_CFG_PATH, anim_lib_name)

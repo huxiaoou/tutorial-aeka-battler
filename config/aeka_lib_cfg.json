@@ -1,71 +1,8 @@
 {
-    "rpg_maker": {
-        "frame_duration": 0.2,
-        "animations": {
-            "idle_0": {
-                "bgn": 0,
-                "stp": 3,
-                "loop": 1
-            },
-            "idle_1": {
-                "bgn": 9,
-                "stp": 12,
-                "loop": 1
-            },
-            "idle_2": {
-                "bgn": 18,
-                "stp": 21,
-                "loop": 1
-            },
-            "idle_3": {
-                "bgn": 27,
-                "stp": 30,
-                "loop": 1
-            },
-            "idle_4": {
-                "bgn": 36,
-                "stp": 39,
-                "loop": 1
-            },
-            "idle_5": {
-                "bgn": 45,
-                "stp": 48,
-                "loop": 1
-            },
-            "attack_0": {
-                "bgn": 3,
-                "stp": 6,
-                "loop": 0
-            },
-            "attack_1": {
-                "bgn": 12,
-                "stp": 15,
-                "loop": 0
-            },
-            "attack_2": {
-                "bgn": 21,
-                "stp": 24,
-                "loop": 0
-            },
-            "attack_3": {
-                "bgn": 30,
-                "stp": 33,
-                "loop": 0
-            },
-            "attack_4": {
-                "bgn": 39,
-                "stp": 42,
-                "loop": 0
-            },
-            "attack_5": {
-                "bgn": 48,
-                "stp": 51,
-                "loop": 0
-            }
-        },
-        "save_path": "res://resources/animations_rpg_maker.res"
-    },
-    "aekalib_flyinghare": {
+    "flyinghare": {
+        "texture_path": "res://assets/aekalib/flying_hare.png",
+        "hframes": 24,
+        "vframes": 32,
         "frame_duration": 0.04,
         "animations": {
             "attack_a": {
@@ -139,6 +76,6 @@
                 "loop": 2
             }
         },
-        "save_path": "res://resources/animations_aekalib_flyinghare.res"
+        "save_path": "res://resources/aeka_flyinghare.res"
     }
 }
