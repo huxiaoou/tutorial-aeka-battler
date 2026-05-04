@@ -37,10 +37,9 @@ func save_my_library(library: AnimationLibrary, path: String):
 
 
 func main() -> void:
-    var cfg_animations_lib: Array[AekaLib] = Utils.get_aeka_libs(Config.AEKA_LIB_CFG_PATH)
-    print(cfg_animations_lib)
-
-    for aeka_lib: AekaLib in cfg_animations_lib:
+    var cfg_animations_lib: Dictionary[String, AekaLib] = Utils.get_aeka_libs(Config.AEKA_LIB_CFG_PATH)
+    for aeka_lib_name: String in cfg_animations_lib.keys():
+        var aeka_lib: AekaLib = cfg_animations_lib[aeka_lib_name]
         var library = AnimationLibrary.new()
         var frame_duration: float = aeka_lib.frame_duration
         for anim_name: String in aeka_lib.animations.keys():
@@ -50,6 +49,6 @@ func main() -> void:
             var loop: int = anim_data.loop
             var loop_mode: Animation.LoopMode = loop as Animation.LoopMode
             add_animation_to_lib(anim_name, library, frame_duration, bgn, stp, loop_mode)
-        print("Animation library created for: ", aeka_lib)
+        print("Animation library created for: ", aeka_lib_name)
         save_my_library(library, aeka_lib.save_path)
     return
