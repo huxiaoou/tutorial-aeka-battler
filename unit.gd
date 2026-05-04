@@ -3,11 +3,10 @@ extends CharacterBody3D
 class_name Unit
 
 @export var animation_id: Config.AekaLibID
+var animation_name: String
 
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_3d: Sprite3D = $Sprite3D
-
-var animation_name: String
 
 
 func _ready() -> void:
