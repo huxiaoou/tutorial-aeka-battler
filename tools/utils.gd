@@ -16,23 +16,29 @@ static func load_json_file(file_path: String) -> Variant:
 
 
 static func get_aeka_lib(anim_lib_cfg_path: String, anim_lib_name: String) -> AekaLib:
-    var cfg_animations_lib: Dictionary = Utils.load_json_file(anim_lib_cfg_path)
-    if cfg_animations_lib is Dictionary:
+    var anim_lib_data: Dictionary = Utils.load_json_file(anim_lib_cfg_path + "/" + anim_lib_name + ".json")
+    if anim_lib_data is Dictionary:
         var aeka_lib: AekaLib = AekaLib.new()
-        aeka_lib.load_from_dict(cfg_animations_lib[anim_lib_name])
+        aeka_lib.load_from_dict(anim_lib_data)
         return aeka_lib
     print("Error: Failed to load animation library configuration.")
     return null
 
 
 static func get_aeka_libs(anim_lib_cfg_path: String) -> Dictionary[String, AekaLib]:
-    var cfg_animations_lib: Dictionary = Utils.load_json_file(anim_lib_cfg_path)
-    if cfg_animations_lib is Dictionary:
-        var aeka_libs: Dictionary[String, AekaLib] = { }
-        for anim_lib_name in cfg_animations_lib.keys():
-            var aeka_lib: AekaLib = AekaLib.new()
-            aeka_lib.load_from_dict(cfg_animations_lib[anim_lib_name])
-            aeka_libs[anim_lib_name] = aeka_lib
-        return aeka_libs
-    print("Error: Failed to load animation library configuration.")
-    return { }
+    var dir: DirAccess = DirAccess.open(anim_lib_cfg_path)
+    if dir == null:
+        print("Error: Could not open directory: ", anim_lib_cfg_path)
+        return { }
+
+    var aeka_libs: Dictionary[String, AekaLib] = { }
+    dir.list_dir_begin()
+    var file_name: String = dir.get_next()
+    while file_name != "":
+        if file_name.ends_with(".json"):
+            var anim_lib_name = file_name.replace(".json", "")
+            var aeka_lib: AekaLib = get_aeka_lib(anim_lib_cfg_path, anim_lib_name)
+            if aeka_lib != null:
+                aeka_libs[anim_lib_name] = aeka_lib
+        file_name = dir.get_next()
+    return aeka_libs

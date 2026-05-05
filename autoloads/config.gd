@@ -1,6 +1,6 @@
 extends Node
 
-const AEKA_LIB_CFG_PATH: String = "res://config/aeka_lib_cfg.json"
+const AEKA_LIB_CFG_PATH: String = "res://config/aeka/"
 
 enum AekaLibID {
     FLYING_HARE,
